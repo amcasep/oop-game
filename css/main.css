@@ -13,3 +13,8 @@ body {
     background-color: aquamarine;
     position: absolute;
 }
+
+.obstacle {
+    background-color: black;
+    position: absolute;
+}
