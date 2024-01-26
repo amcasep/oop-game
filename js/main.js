@@ -71,14 +71,22 @@ const obstacles = [];
 setInterval (() => {
     const newObstacle = new Obstacle ()
     obstacles.push(newObstacle)
-}, 3000)
+}, 1000)
 
-//make the obstacles in the array move from up to down
+//OBSTACLES -> move & detect collision
 setInterval(() => {
-   obstacles.forEach((obstacleInstances) => {
-    obstacleInstances.moveDown()
+   obstacles.forEach((obstacleInstance) => {
+    //1. move the obstacles
+    obstacleInstance.moveDown()
+    //2. detect collision
+    if (player.positionX < obstacleInstance.positionX + obstacleInstance.width &&
+        player.positionX + player.width > obstacleInstance.positionX &&
+        player.positionY < obstacleInstance.positionY + obstacleInstance.height &&
+        player.positionY + player.height > obstacleInstance.positionY) {
+        location.href ="gameover.html"
+        }
    })
-}, 30)
+}, 20)
 
 //add movement to the player
 document.addEventListener("keydown", (e) => {
