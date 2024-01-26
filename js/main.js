@@ -24,12 +24,17 @@ class Player {
         boardElm.appendChild(this.domElm)
     }
     moveLeft(){
-        this.positionX--
-        this.domElm.style.left = this.positionX + "vw";
+        if (this.positionX > 0) {
+            this.positionX--
+            this.domElm.style.left = this.positionX + "vw";
+        }
+        
     }
     moveRight(){
-        this.positionX++
-        this.domElm.style.left = this.positionX + "vw";
+        if (this.positionX + this.width < 100) {
+            this.positionX++
+            this.domElm.style.left = this.positionX + "vw";
+        }
     }
 }
 
